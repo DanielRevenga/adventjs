@@ -23,14 +23,15 @@ const boxCanFit = (box1, box2) => {
 }
 
 const fitsInOneBox = (boxes) => {
-   orderedBoxes = boxes.sort(compareBoxes)
+   const orderedBoxes = boxes.sort(compareBoxes)
 
-   fitsInOneBoxResult = true
+   let fitsInOneBoxResult = true
    for (let i = 0; i < orderedBoxes.length - 1; i++) {
-      box = orderedBoxes[i]
-      nextBox = orderedBoxes[i + 1]
+      const box = orderedBoxes[i]
+      const nextBox = orderedBoxes[i + 1]
 
       if (!boxCanFit(box, nextBox)) fitsInOneBoxResult = false
+      if (!fitsInOneBoxResult) break
    }
 
    return fitsInOneBoxResult
